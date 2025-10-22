@@ -1,0 +1,12 @@
+@ApiProject_HostAddress = http://localhost:5293
+
+GET {{ApiProject_HostAddress}}/api/users/all
+Accept: application/json
+
+###
+
+POST {{ApiProject_HostAddress}}/api/users/create?firstName=John&lastName=Doe&email=john.doe@example.com
+Content-Type: application/json
+
+DELETE {{ApiProject_HostAddress}}/api/users/all
+Accept: application/json

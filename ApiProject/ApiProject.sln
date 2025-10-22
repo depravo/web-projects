@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36603.0 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiProject", "ApiProject\ApiProject.csproj", "{EBF50C6F-4F9F-4830-B730-6ADEA0CB2D09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateDBProj", "..\CreateDBProj\CreateDBProj\CreateDBProj.csproj", "{6F33F1A9-E634-7887-B06A-0CCCCE48425E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBF50C6F-4F9F-4830-B730-6ADEA0CB2D09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBF50C6F-4F9F-4830-B730-6ADEA0CB2D09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBF50C6F-4F9F-4830-B730-6ADEA0CB2D09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBF50C6F-4F9F-4830-B730-6ADEA0CB2D09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F33F1A9-E634-7887-B06A-0CCCCE48425E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F33F1A9-E634-7887-B06A-0CCCCE48425E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F33F1A9-E634-7887-B06A-0CCCCE48425E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F33F1A9-E634-7887-B06A-0CCCCE48425E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {376A7058-3303-4BDE-9A10-8D4C3D3584B1}
+	EndGlobalSection
+EndGlobal

@@ -8,6 +8,13 @@ using System.Threading.Tasks;
 
 namespace CreateDBProj {
 	public class Enrollment {
+		public Enrollment(int userId, int courseId, DateTime enrolledAt, double? grade) {
+			UserId = userId;
+			CourseId = courseId;
+			EnrolledAt = enrolledAt;
+			Grade = grade;
+		}
+
 		[Key]
 		public int Id { get; set; }
 		public int UserId { get; set; }

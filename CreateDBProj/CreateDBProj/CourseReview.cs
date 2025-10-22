@@ -8,6 +8,14 @@ using System.Threading.Tasks;
 
 namespace CreateDBProj {
 	public class CourseReview {
+		public CourseReview(int userId, int courseId, int rating, string comment, DateTime createdAt) {
+			UserId = userId;
+			CourseId = courseId;
+			Rating = rating;
+			Comment = comment;
+			CreatedAt = createdAt;
+		}
+
 		[Key]
 		public int Id { get; set; }
 		public int UserId { get; set; }
