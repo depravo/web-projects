@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\Mappings\" />
     <Folder Include="Presentation\Controllers\" />
     <Folder Include="Presentation\Middlewares\" />
   </ItemGroup>
