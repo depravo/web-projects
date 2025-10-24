@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace CreateDBProj {
+namespace OnionApp.Core.Entities {
 	public class Course {
-		public Course(string Title, string Description, double Price) {
-			this.Title = Title;
-			this.Description = Description;
-			this.Price = Price;
-		}
 		[Key]
 		public int Id { get; set; }
+
 		[Required]
 		[MaxLength(100)]
 		public string Title { get; set; }
@@ -23,5 +14,16 @@ namespace CreateDBProj {
 		public ICollection<Module> Modules { get; set; } = new List<Module>();
 		public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
 
+		public Course(string Title, string Description, double Price) {
+			this.Title = Title;
+			this.Description = Description;
+			this.Price = Price;
+		}
+
+		public void Update(string Title, string Description, double Price) {
+			this.Title = Title;
+			this.Description = Description;
+			this.Price = Price;
+		}
 	}
 }

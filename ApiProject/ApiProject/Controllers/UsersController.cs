@@ -31,7 +31,7 @@ namespace ApiProject.Controllers {
 			if (id == null) {
 				return NotFound();
 			}
-
+			
 			var user = _context.Users
 				.FirstOrDefault(m => m.Id == id);
 			if (user == null) {
