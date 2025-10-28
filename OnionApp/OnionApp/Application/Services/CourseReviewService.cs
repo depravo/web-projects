@@ -5,7 +5,7 @@ using OnionApp.Infrastructure.Repositories;
 using OnionApp.Application.Mappings;
 
 namespace OnionApp.Application.Services {
-	public class CourseReviewService : ICourseReviesService {
+	public class CourseReviewService : ICourseReviewService {
 
 		private readonly ICourseReviewRepository _courseReviewRepository;
 
@@ -26,7 +26,7 @@ namespace OnionApp.Application.Services {
 			return courseReviews.Select(cr => CourseReviewMapper.MapToResponseDto(cr));
 		}
 
-		public async Task<CourseReviewResponseDto> GetCourseReviewByCourseIdAsync(int id) {
+		public async Task<CourseReviewResponseDto> GetCourseReviewByIdAsync(int id) {
 			var courseReview = await _courseReviewRepository.GetByIdAsync(id);
 			return courseReview == null ? null : CourseReviewMapper.MapToResponseDto(courseReview);
 		}

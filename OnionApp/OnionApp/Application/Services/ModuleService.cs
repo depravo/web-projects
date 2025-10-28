@@ -27,7 +27,7 @@ namespace OnionApp.Application.Services {
 			return modules.Select(m => ModuleMapper.MapToResponseDto(m));
 		}
 
-		public async Task<IEnumerable<ModuleResponseDto>> GetModuleByCourseIdAsync(int courseId) {
+		public async Task<IEnumerable<ModuleResponseDto>> GetModulesByCourseIdAsync(int courseId) {
 			var modules = await _moduleRepository.GetModulesByCourse(courseId);
 			return modules == null ? null : modules.Select(ModuleMapper.MapToResponseDto);
 		}

@@ -14,7 +14,7 @@ namespace OnionApp.Core.Entities {
 		[ForeignKey("CourseId")]
 		public Course? Course { get; set; }
 		public DateTime EnrolledAt { get; set; }
-		public double? Grade { get; set; }
+		public double Grade { get; set; }
 		public Enrollment(int userId, int courseId, double grade) {
 			UserId = userId;
 			CourseId = courseId;
