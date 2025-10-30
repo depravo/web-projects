@@ -1,9 +1,9 @@
 import React from "react";
 import "./catalog.css";
 import CatalogItem from "../CatalogItem/CatalogItem";
-import ArtItem from "@/types/ArtItem";
+import Course from "@/types/Course";
 
-export default function Catalog({items}:{items: ArtItem[] }) {
+export default function Catalog({items}:{items: Course[] }) {
   return (
     <section className="menu_section" id="menu_section">
       <div className="container">

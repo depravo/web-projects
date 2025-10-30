@@ -32,7 +32,8 @@ namespace OnionApp.Infrastructure.Repositories {
 		}
 
 		public async Task UpdateAsync(Course entity) {
-
+			_context.Courses.Update(entity);
+			await _context.SaveChangesAsync();
 		}
 	}
 }

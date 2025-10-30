@@ -13,7 +13,15 @@ var user = Environment.GetEnvironmentVariable("DB_USER");
 var password = Environment.GetEnvironmentVariable("DB_PASSWORD");
 var dbName = Environment.GetEnvironmentVariable("DB_NAME");
 var connectionString = $"server={server};user={user};password={password};database={dbName}";
-
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy("CorsPolicy", policy =>
+	{
+		policy.WithOrigins("http://localhost:3000")
+			  .AllowAnyMethod()
+			  .AllowAnyHeader();
+	});
+});
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 	options.UseMySql(connectionString, new MySqlServerVersion(new Version(9, 4, 0))));
 
@@ -33,6 +41,8 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
+app.UseCors("CorsPolicy");
+
 
 if (app.Environment.IsDevelopment())
 {

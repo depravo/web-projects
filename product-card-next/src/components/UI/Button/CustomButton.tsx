@@ -10,6 +10,18 @@ export default function CustomButton({
 }) {
   buttonProps.type = buttonProps.type ?? "button";
   buttonProps.variant = buttonProps.variant ?? "primary";
+  if(buttonProps.handleClick) {
+    return (
+    <Link
+      href={`${buttonProps.link}`}
+      className={`bttn ${buttonProps.variant}`}
+      type={buttonProps.type}
+      onClick={buttonProps.handleClick}
+    >
+      {buttonProps.text}
+    </Link>
+  );
+  }
   return (
     <Link
       href={`${buttonProps.link}`}

@@ -1,16 +1,22 @@
 import ArtItem from "@/types/ArtItem";
+import Course from "@/types/Course";
 import axios, { AxiosError } from "axios";
+import https from "https";
+
+const axiosInstance = axios.create({
+  httpsAgent: new https.Agent({
+    rejectUnauthorized: false
+  })
+});
 
 export const getArts = async () => {
   try {
     const response = await axios.get(
       "https://collectionapi.metmuseum.org/public/collection/v1/search?q=departmentId=4&hasImages=true&limit=10"
     );
-    console.log(response.status);
     return response;
   } catch (error) {
     const err = error as AxiosError;
-    console.log("Error message:", err.message);
   }
 };
 
@@ -21,8 +27,7 @@ export const getArtInfo = async (artId: number) => {
     );
     return response;
   } catch (error) {
-    const err = error as AxiosError;
-    console.log("Error message:", err.message);
+    console.log((error as AxiosError).message);
   }
 };
 
@@ -47,10 +52,66 @@ export const loadArts = async () => {
           item.data.objectDate
         )
     );
-    console.log(artsArr);
     return artsArr;
   } catch (error) {
-    console.log(error);
     return [];
+  }
+};
+
+export const getCourses = async () => {
+  try {
+    const response = await axiosInstance.get("https://localhost:7192/api/courses/all");
+    console.log(response.status);
+    return response.data;
+  } catch (error) {
+    const err = error as AxiosError;
+    console.log("Error message:", err.message);
+  }
+};
+
+export const getCourseInfo = async (courseId: number) => {
+  try {
+    const response = await axiosInstance.get(
+      `https://localhost:7192/api/courses/${courseId}`
+    );
+    console.log("Get: " + response.status);
+    const course = new Course(
+      response.data.id,
+      response.data.title,
+      response.data.description,
+      response.data.price
+    );
+    return course;
+  } catch (error) {
+    const err = error as AxiosError;
+    console.log("Error message:", err.message);
+  }
+};
+
+export const editCourse = async (course: Course) => {
+  try {
+ const courseDto = {
+      title: course.title,
+      description: course.description,
+      price: course.price
+    };
+
+    const response = await axiosInstance.put(
+      `https://localhost:7192/api/courses/edit/${course.id}`, courseDto
+    );
+    console.log("Edit: " + response.status);
+  } catch (error) {
+    const err = error as AxiosError;
+    console.log("Error message:", err.message);
+  }
+};
+
+export const deleteCourse = async (courseId: number) => {
+  try {
+    const response = await axios.delete(`https://localhost:7192/api/courses/delete/${courseId}`);
+    console.log("Delete: " + response.status);
+  } catch (error) {
+    const err = error as AxiosError;
+    console.log("Error message:", err.message);
   }
 };

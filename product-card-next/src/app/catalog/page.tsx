@@ -1,14 +1,14 @@
-import { loadArts } from "@/services/api";
+import { getCourses } from "@/services/api";
 import Catalog from "@/components/Catalog/Catalog";
 import CustomHeader from "@/components/Header/CustomHeader";
 
 export default async function CatalogPage() {
-  const artItems = await loadArts();
+  const courses = await getCourses();
 
   return (
     <>
       {/* <CustomHeader pageType={"catalog-page"}></CustomHeader> */}
-      <Catalog items={artItems} />
+      <Catalog items={courses} />
     </>
   );
 }

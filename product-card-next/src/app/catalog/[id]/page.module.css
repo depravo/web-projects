@@ -1,7 +1,7 @@
 .card_root {
   display: flex;
-  justify-content: space-between;
-  gap: 5rem;
+  flex-direction: column;
+  gap: 2rem;
   font-size: 1.25rem;
 }
 
@@ -31,4 +31,13 @@
   padding-bottom: 1.5rem;
   font-weight: bold;
   font-size: 1.75rem;
+}
+
+.card_buttons {
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
 }

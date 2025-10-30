@@ -12,6 +12,12 @@
 .card_link {
   width: 100%;
   height: fit-content;
+  text-decoration: none;
+  color: black;
+}
+
+.card:has(.card_link:hover) {
+  box-shadow: rgba(211, 197, 3, 0.986) 0px 5px 15px;
 }
 
 picture {

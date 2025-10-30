@@ -1,7 +1,6 @@
-import { getArtInfo } from "@/services/api";
-import ArtItem from "@/types/ArtItem";
-import Image from "next/image";
+import { getCourseInfo } from "@/services/api";
 import styles from "./page.module.css";
+import CourseActions from "@/components/CourseActions/CourseActions";
 
 export default async function CardPage({
   params,
@@ -9,33 +8,25 @@ export default async function CardPage({
   params: Promise<{ id: number }>;
 }) {
   const { id } = await params;
-  const itemJSON = await getArtInfo(id);
-  const item = new ArtItem(
-    itemJSON?.data.objectID,
-    itemJSON?.data.primaryImageSmall,
-    itemJSON?.data.objectName,
-    itemJSON?.data.title,
-    itemJSON?.data.department,
-    itemJSON?.data.objectDate
-  );
+  const course = await getCourseInfo(id);
+  if (!course) {
+    return <div>Course not found</div>;
+  }
+  const serializedCourse = {
+    id: course.id,
+    title: course.title,
+    description: course.description,
+    price: course.price,
+  };
   return (
     <div className="container">
       <div className={styles.card_root}>
-        <picture>
-          <Image
-            src={item.img}
-            alt=""
-            className="card-img"
-            width={100}
-            height={100}
-          />
-        </picture>
         <div className={styles.card_body}>
-          <span className={styles.item_title}>{item.title}</span>
-          <span className={styles.item_author}>{item.author}</span>
-          <span className={styles.item_department}>{item.department}</span>
-          <span className={styles.item_year}>{item.publish_year}</span>
+          <span className={styles.item_title}>{course.title}</span>
+          <span className={styles.item_author}>{course.description}</span>
+          <span className={styles.item_department}>{course.price}</span>
         </div>
+        <CourseActions props={serializedCourse!}></CourseActions>
       </div>
     </div>
   );
